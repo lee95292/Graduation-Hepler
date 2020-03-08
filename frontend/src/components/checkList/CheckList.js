@@ -13,7 +13,10 @@ class CheckList extends Component {
               </Accordion.Toggle>
             </Card.Header>
             <Accordion.Collapse eventKey="0">
-              <Card.Body>Hello! I'm the body</Card.Body>
+              <Card.Body>
+                <div className="add">졸업자격 테스트</div>
+                <input type="text" />
+              </Card.Body>
             </Accordion.Collapse>
           </Card>
           <Card>

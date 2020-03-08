@@ -7,7 +7,7 @@ export class Contents extends Component {
   render() {
     return (
       <div className="contents">
-        <h2>BK21 - Graduation Requirements</h2>
+        <h2>JIANT - Graduation Requirements</h2>
         <div className="inner">
           <Tabs defaultActiveKey="require" id="uncontrolled-tab-example">
             <Tab eventKey="require" title="졸업자격">
