@@ -1,7 +1,11 @@
-.app {
+.app-main {
   display: flex;
   justify-content: left;
 
   /* layout */
+  height: 100%;
+}
+
+.app {
   height: 100%;
 }

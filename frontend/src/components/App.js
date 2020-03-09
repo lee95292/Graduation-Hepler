@@ -1,5 +1,6 @@
 import React, { Component } from "react";
-import { BrowserRouter } from "react-router-dom";
+import { BrowserRouter, Route } from "react-router-dom";
+import Admin from "./admin";
 import Contents from "./contents";
 import axios from "axios";
 import "./App.css";
@@ -7,17 +8,20 @@ import "./App.css";
 import Sidebar from "./sidebar";
 
 class App extends Component {
-  componentDidMount() {
-    axios.get("/test").then(res => {
-      console.log(res);
-    });
-  }
   render() {
     return (
       <div className="app">
         <BrowserRouter>
-          <Sidebar />
-          <Contents />
+          <Route exact path="/admin" component={Admin} />
+          <Route
+            path="/main"
+            render={() => (
+              <div className="app-main">
+                <Sidebar />
+                <Contents />
+              </div>
+            )}
+          />
         </BrowserRouter>
       </div>
     );

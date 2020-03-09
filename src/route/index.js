@@ -1,8 +1,8 @@
 const router = require("express").Router(),
-  homeRoutes = require("./homeRoute");
+  requisiteRoute = require("./requisiteRoute");
 // errorRoutes = require("./errorRoutes");
 
-router.use("/", homeRoutes);
+router.use("/requisite", requisiteRoute);
 // router.use("/error", errorRoutes);
 
 module.exports = router;

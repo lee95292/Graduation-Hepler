@@ -20,3 +20,7 @@ const requirementSchema = new mongoose.Schema({
     required: true
   }
 });
+
+const model = mongoose.model("Requirement", requirementSchema);
+
+module.exports = model;
