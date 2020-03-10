@@ -39,5 +39,14 @@ module.exports = {
     Requirements.find({}).then(requires => {
       res.json(requires);
     });
+  },
+
+  delete: (req, res) => {
+    const id = req.param("id");
+    Requirements.remove({ _id: id })
+      .then(() => {})
+      .catch(error => {
+        console.log(error);
+      });
   }
 };

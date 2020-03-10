@@ -1,14 +1,24 @@
 import React, { Component } from "react";
 import { Card, Accordion, Button } from "react-bootstrap";
+import PopupModal from "./popupModal";
 import axios from "axios";
 //temporary data
 const userData = {
-  track: "연구",
+  track: "산학",
   diploma: "석사"
 };
 class CheckList extends Component {
   state = {
+    popupShow: false,
     requisites: []
+  };
+
+  handlePopupShow = () => {
+    this.setState({ ...this.state, popupShow: true });
+  };
+
+  handlePopupClose = () => {
+    this.setState({ ...this.state, popupShow: false });
   };
   componentDidMount() {
     const url =
@@ -42,7 +52,7 @@ class CheckList extends Component {
       }
     });
 
-    console.log(requisiteSet);
+    console.log(this.state.popupShow);
 
     let reqList = [];
     let key = 0;
@@ -50,6 +60,13 @@ class CheckList extends Component {
       let detailList = requisiteSet[catagory].map((val, index) => (
         <div className="detail" key={index}>
           {val}
+          <Button variant="primary" onClick={this.handlePopupShow}>
+            append
+          </Button>
+          <PopupModal
+            show={this.state.popupShow}
+            handleClose={this.handlePopupClose}
+          />
         </div>
       ));
       key++;
