@@ -29,9 +29,13 @@ module.exports = {
   },
 
   list: (req, res) => {
-    const catagory = req.param("deploma"),
+    const diploma = req.param("diploma"),
       track = req.param("track");
-
+    Requirements.find({ track: track, diploma: diploma }).then(requires => {
+      res.json(requires);
+    });
+  },
+  listall: (req, res) => {
     Requirements.find({}).then(requires => {
       res.json(requires);
     });

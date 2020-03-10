@@ -8,8 +8,9 @@ class admin extends Component {
   };
 
   componentDidMount() {
-    axios.get("/requisite/list").then(res => {
+    axios.get("/requisite/listall").then(res => {
       this.handleUpdate(res);
+      console.log(res.data);
     });
   }
 
