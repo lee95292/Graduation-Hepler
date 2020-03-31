@@ -19,3 +19,5 @@ nodemon &
 cd client  
 npm run start  
 
+
+http://ipaddr:3000/main  접속
