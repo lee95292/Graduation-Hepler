@@ -7,9 +7,15 @@ mongodb 설치
 git clone https://github.com/lee95292/Graduation-Hepler
 
 
-(project root)$ npm install  
+//서버 및 클라이언트 패키지 설치.  
+npm install  
 cd client  
 npm install  
 
 
-(project root)$ npm run dev
+//서버 클라이언트 실행
+
+nodemon &  
+cd client  
+npm run start  
+
