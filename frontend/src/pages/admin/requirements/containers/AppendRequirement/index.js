@@ -1,8 +1,8 @@
 import React, { Component } from "react";
-import RequisiteForm from "./requisiteForm";
+import RequisiteForm from "../../components/RequirementAppendForm";
 import axios from "axios";
 
-class admin extends Component {
+class AppendRequirement extends Component {
   state = {
     requisites: []
   };
@@ -61,4 +61,4 @@ class admin extends Component {
   }
 }
 
-export default admin;
+export default AppendRequirement;
