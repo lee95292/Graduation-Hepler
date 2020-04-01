@@ -1,5 +1,5 @@
-import React, { Component } from "react";
-import { Tabs, Tab } from "react-bootstrap";
+import React, { Component } from "./node_modules/react";
+import { Tabs, Tab } from "./node_modules/react-bootstrap";
 import CheckList from "../checkList";
 import "./contents.css";
 

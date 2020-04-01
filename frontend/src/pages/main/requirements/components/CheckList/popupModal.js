@@ -7,7 +7,7 @@ class PopupModal extends Component {
     return (
       <Modal show={show} onHide={handleClose}>
         <Modal.Header closeButton>
-          <Modal.Title>활동추가</Modal.Title>
+          <Modal.Title>í™œë�™ì¶”ê°€</Modal.Title>
         </Modal.Header>
         <Modal.Body>
           <input type="text" />
