@@ -2,7 +2,7 @@ import React, { Component } from "react";
 import { BrowserRouter, Route } from "react-router-dom";
 import Admin from "./admin";
 import Contents from "./contents";
-import axios from "axios";
+// import axios from "axios";
 import "./App.css";
 
 import Sidebar from "./sidebar";
