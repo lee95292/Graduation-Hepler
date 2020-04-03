@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import axios from "axios";
 
-class RequisiteForm extends Component {
+class RequirementAppendForm extends Component {
   state = {
     form: {
       catagory: "",
@@ -82,4 +82,4 @@ class RequisiteForm extends Component {
   }
 }
 
-export default RequisiteForm;
+export default RequirementAppendForm;
