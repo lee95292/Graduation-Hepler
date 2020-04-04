@@ -18,6 +18,9 @@ const requirementSchema = new mongoose.Schema({
   diploma: {
     type: String,
     required: true
+  },
+  description: {
+    type: String
   }
 });
 

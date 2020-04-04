@@ -4,19 +4,26 @@ const mongoose = require("mongoose"),
 const userSchema = new mongoose.Schema({
   email: {
     type: String,
-    required: true
+    required: true,
+    unique:true
   },
   name: {
     type: String,
     required: true
   },
-  diploy: {
-    type: String,
-    required: true
+
+  diploma:{
+    type:
   },
-  age: {
-    type: Number
-  }
+
+  track:{
+    type:
+  },
+
+  requirements:{
+    //배열로 저장
+  },
+  
 });
 
 userSchema.plugin(passportLocalMongoose, { userFiled: "email" });
