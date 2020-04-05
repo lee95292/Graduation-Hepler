@@ -2,27 +2,55 @@
   "name": "graduation-helper-backend",
   "version": "1.0.0",
   "description": "nodejs/socketio/mongoose : ghepler backend",
-  "main": "src/main.js",
+  "main": "src/server/main.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
-    "client": "cd frontend && npm start",
+    "build:dev": "webpack --mode development --watch",
     "server": "nodemon",
-    "dev": "concurrently --kill-others-on-fail \"npm run server\" \"npm run client\""
+    "start": "npm run build:dev ; npm run server"
   },
   "author": "marco_lee",
   "license": "ISC",
   "dependencies": {
+    "axios": "^0.19.2",
     "body-parser": "^1.19.0",
+    "bootstrap": "^4.4.1",
+    "cookie-parser": "^1.4.5",
+    "cors": "^2.8.5",
+    "css-loader": "^3.4.2",
     "express": "^4.17.1",
     "express-session": "^1.17.0",
+    "fs": "0.0.1-security",
+    "https": "^1.0.0",
     "mongoose": "^5.9.3",
     "nodemon": "^2.0.2",
     "passport": "^0.4.1",
     "passport-google-oauth": "^2.0.0",
     "passport-local": "^1.0.0",
-    "passport-local-mongoose": "^6.0.1"
+    "passport-local-mongoose": "^6.0.1",
+    "react": "^16.13.1",
+    "react-bootstrap": "^1.0.0",
+    "react-dom": "^16.13.1",
+    "react-router-dom": "^5.1.2"
   },
   "devDependencies": {
-    "concurrently": "^4.0.1"
+    "@babel/core": "^7.9.0",
+    "@babel/plugin-proposal-class-properties": "^7.8.3",
+    "@babel/preset-env": "^7.9.0",
+    "@babel/preset-react": "^7.9.4",
+    "babel-loader": "^8.1.0",
+    "concurrently": "^4.0.1",
+    "react-hot-loader": "^4.12.20",
+    "webpack": "^4.42.1",
+    "webpack-cli": "^3.3.11",
+    "webpack-dev-server": "^3.10.3"
+  },
+  "babel": {
+    "presets": [
+      "@babel/preset-env",
+      "@babel/preset-react"
+    ],
+    "plugins": [
+      "@babel/plugin-proposal-class-properties"
+    ]
   }
 }
