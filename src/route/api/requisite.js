@@ -1,4 +1,4 @@
-const router = require("express").Router(),
+const router = require("express").Router();
 
 router.get("/listall", (req, res) => {
   Requirements.find({}).then(requires => {
