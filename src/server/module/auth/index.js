@@ -36,6 +36,7 @@ passport.use(
 
 function onLoginSuccess() {}
 exports.setup = app => {
+  app.use(cookieParser("secret"));
   app.use(
     session({
       secret: "secret",
@@ -44,7 +45,6 @@ exports.setup = app => {
       cookie: { secure: false, maxAge: 4 * 60 * 60 * 1000 }
     })
   );
-  app.use(cookieParser("secret"));
   app.use(passport.initialize());
   app.use(passport.session());
 
