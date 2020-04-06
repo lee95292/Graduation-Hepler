@@ -1,4 +1,5 @@
 const router = require("express").Router();
+const Requirements = require("../../model/requirment");
 
 router.get("/listall", (req, res) => {
   Requirements.find({}).then(requires => {
@@ -7,15 +8,14 @@ router.get("/listall", (req, res) => {
 });
 
 router.get("/list", (req, res) => {
-  const diploma = req.param("diploma"),
-    track = req.param("track");
+  const { diploma, track } = req.params;
   Requirements.find({ track: track, diploma: diploma }).then(requires => {
     res.json(requires);
   });
 });
 
 router.get("/delete", (req, res) => {
-  const id = req.param("id");
+  const id = req.params.id;
   Requirements.remove({ _id: id })
     .then(() => {})
     .catch(error => {
