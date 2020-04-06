@@ -1,8 +1,7 @@
 const router = require("express").Router(),
-  requisiteRoute = require("./requisiteRoute");
-// errorRoutes = require("./errorRoutes");
+  requisiteRoute = require("./api/requisite"),
+  authRoute = require("./api/auth");
 
-router.use("/requisite", requisiteRoute);
-// router.use("/error", errorRoutes);
-
+router.use("/reqs", requisiteRoute);
+router.use("/user", authRoute);
 module.exports = router;

@@ -3,6 +3,7 @@ import { BrowserRouter, Route, Switch } from "react-router-dom";
 
 import AdminRequirementPage from "../../pages/admin/requirements";
 import MainRequirementsPage from "../../pages/main/requirements";
+import AccountPage from "../../pages/account";
 
 class AppRouter extends Component {
   render() {
@@ -10,6 +11,7 @@ class AppRouter extends Component {
       <div>
         <BrowserRouter>
           <Switch>
+            <Route exact path="/account" component={AccountPage} />
             <Route exact path="/main" component={MainRequirementsPage} />
             <Route path="/main/requirements" component={MainRequirementsPage} />
 
