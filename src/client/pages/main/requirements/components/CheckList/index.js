@@ -3,7 +3,6 @@ import { Card, Accordion, Button, ProgressBar, Badge } from "react-bootstrap";
 import PopupModal from "./popupModal";
 import axios from "axios";
 //temporary data
-
 const userData = {
   track: "산학",
   diploma: "석사",
