@@ -1,13 +1,13 @@
 const router = require("express").Router();
 const Requirements = require("../../model/requirment");
-
+const auth = require("../../middleware/auth");
 router.get("/listall", (req, res) => {
   Requirements.find({}).then((requires) => {
     res.json(requires);
   });
 });
 
-router.get("/list/:track/:diploma", (req, res) => {
+router.get("/list/:track/:diploma", auth.filter, (req, res) => {
   const { diploma, track } = req.params;
   Requirements.find({ track: track, diploma: diploma }).then((requires) => {
     res.json(requires);
