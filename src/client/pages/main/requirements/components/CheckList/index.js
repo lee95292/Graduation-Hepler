@@ -6,14 +6,15 @@ import axios from "axios";
 
 const userData = {
   track: "산학",
-  diploma: "석사"
+  diploma: "석사",
 };
+
 class CheckList extends Component {
   constructor(props) {
     super(props);
     this.state = {
       popupShow: false,
-      requisites: []
+      requisites: [],
     };
   }
   getRandomIntInclusive = (min, max) => {
@@ -33,21 +34,16 @@ class CheckList extends Component {
     this.setState({ ...this.state, popupShow: false });
   };
   componentDidMount() {
-    const url =
-      "/requisite/list?track=" +
-      userData.track +
-      "&diploma=" +
-      userData.diploma;
     axios
-      .get(url)
-      .then(res => {
+      .get(`/api/requisite/list/${userData.track}/${userData.diploma}`)
+      .then((res) => {
         console.log(res.data);
         this.setState({
           ...this.state,
-          requisites: res.data
+          requisites: res.data,
         });
       })
-      .catch(error => {
+      .catch((error) => {
         console.log(error);
       });
   }
@@ -55,7 +51,7 @@ class CheckList extends Component {
     const rawReq = this.state.requisites,
       requisiteSet = {};
 
-    rawReq.map(val => {
+    rawReq.map((val) => {
       const catagory = val.catagory;
       if (!requisiteSet[catagory]) {
         requisiteSet[catagory] = Array(val.name);

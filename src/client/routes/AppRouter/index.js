@@ -11,10 +11,10 @@ class AppRouter extends Component {
       <div>
         <BrowserRouter>
           <Switch>
-            <Route exact path="/" component={AccountPage} />
-
-            <Route exact path="/main" component={MainRequirementsPage} />
+            <Route exact path="/" component={MainRequirementsPage} />
             <Route path="/main/requirements" component={MainRequirementsPage} />
+
+            <Route exact path="/account" component={AccountPage} />
 
             <Route exact path="/admin" component={AdminRequirementPage} />
             <Route

@@ -6,7 +6,7 @@ module.exports = {
   // 파일을 합치고 ./public/bundle.js 에 저장한다.
   output: {
     path: __dirname + "/public",
-    filename: "bundle.js"
+    filename: "bundle.js",
   },
 
   // ES6 문법과 JSX 문법을 사용한다
@@ -19,18 +19,28 @@ module.exports = {
           {
             loader: "babel",
             options: {
-              cacheDirectory: true
-            }
-          }
-        ]
+              cacheDirectory: true,
+            },
+          },
+        ],
       },
       {
         test: /\.css$/,
-        use: ["css-loader"]
-      }
-    ]
+        use: ["css-loader"],
+      },
+    ],
   },
   resolveLoader: {
-    moduleExtensions: ["-loader"]
-  }
+    moduleExtensions: ["-loader"],
+  },
+  devServer: {
+    contentBase: __dirname + "/public/",
+    inline: true,
+    hot: true,
+    proxy: {
+      "**": "http://localhost:4000",
+    },
+    host: "localhost",
+    port: 9000,
+  },
 };

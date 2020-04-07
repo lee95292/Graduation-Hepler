@@ -2,14 +2,14 @@ const router = require("express").Router();
 const Requirements = require("../../model/requirment");
 
 router.get("/listall", (req, res) => {
-  Requirements.find({}).then(requires => {
+  Requirements.find({}).then((requires) => {
     res.json(requires);
   });
 });
 
-router.get("/list", (req, res) => {
+router.get("/list/:track/:diploma", (req, res) => {
   const { diploma, track } = req.params;
-  Requirements.find({ track: track, diploma: diploma }).then(requires => {
+  Requirements.find({ track: track, diploma: diploma }).then((requires) => {
     res.json(requires);
   });
 });
@@ -18,7 +18,7 @@ router.get("/delete", (req, res) => {
   const id = req.params.id;
   Requirements.remove({ _id: id })
     .then(() => {})
-    .catch(error => {
+    .catch((error) => {
       console.log(error);
     });
 });
@@ -28,14 +28,14 @@ router.post("/create", (req, res) => {
     track: req.body.track,
     catagory: req.body.catagory,
     name: req.body.name,
-    diploma: req.body.diploma
+    diploma: req.body.diploma,
   };
 
   Requirements.create(requisiteModel)
-    .then(requirement => {
+    .then((requirement) => {
       res.json(requirement);
     })
-    .catch(error => {
+    .catch((error) => {
       console.log("error: create requisite", error);
     });
 });
