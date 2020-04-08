@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import AppendRequirement from "./containers/AppendRequirement";
+import AppendRequirement from "./containers/FormedRequisite";
 
 export class AdminPage extends Component {
   render() {

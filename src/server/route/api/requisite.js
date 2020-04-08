@@ -1,6 +1,7 @@
 const router = require("express").Router();
 const Requirements = require("../../model/requirment");
 const auth = require("../../middleware/auth");
+
 router.get("/listall", (req, res) => {
   Requirements.find({}).then((requires) => {
     res.json(requires);
@@ -14,10 +15,12 @@ router.get("/list/:track/:diploma", (req, res) => {
   });
 });
 
-router.get("/delete", (req, res) => {
+router.get("/delete/:id", (req, res) => {
   const id = req.params.id;
   Requirements.remove({ _id: id })
-    .then(() => {})
+    .then(() => {
+      res.json({ removed: true });
+    })
     .catch((error) => {
       console.log(error);
     });

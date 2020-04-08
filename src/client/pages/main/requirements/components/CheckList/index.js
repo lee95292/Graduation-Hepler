@@ -1,9 +1,11 @@
 import React, { Component } from "react";
-import { Card, Accordion, Button, ProgressBar, Badge } from "react-bootstrap";
-
-import PropTypes from "prop-types";
-import PopupModal from "./popupModal";
+import { Card, Button } from "react-bootstrap";
 import axios from "axios";
+
+import PopupModal from "../PopupModal";
+import CheckItem from "../CheckItem";
+import CheckCatagory from "../../CheckCatagory";
+
 //temporary data
 const userData = {
   track: "산학",
@@ -15,9 +17,16 @@ class CheckList extends Component {
     super(props);
     this.state = {
       popupShow: false,
-      requisites: [],
     };
   }
+
+  handlePopupShow = () => {
+    this.setState({ popupShow: true });
+  };
+
+  handlePopupClose = () => {
+    this.setState({ popupShow: false });
+  };
   getRandomIntInclusive = (min, max) => {
     min = Math.ceil(min);
     max = Math.floor(max);
@@ -27,97 +36,48 @@ class CheckList extends Component {
     const full = this.getRandomIntInclusive(3, 7);
     return [this.getRandomIntInclusive(0, full), full];
   };
-  handlePopupShow = () => {
-    this.setState({ ...this.state, popupShow: true });
-  };
-
-  handlePopupClose = () => {
-    this.setState({ ...this.state, popupShow: false });
-  };
-  componentDidMount() {
-    axios
-      .get(`/api/requisite/list/${userData.track}/${userData.diploma}`)
-      .then((res) => {
-        console.log(res.data);
-        this.setState({
-          ...this.state,
-          requisites: res.data,
-        });
-      })
-      .catch((error) => {
-        console.log(error);
-      });
-  }
   render() {
-    const rawReq = this.state.requisites,
-      requisiteSet = {};
+    const { requisites } = this.props,
+      catagorySet = {};
 
-    rawReq.map((val) => {
+    //Catagory set으로 묶기
+    //TODO: progressInfo 데이터로 교체하기
+    requisites.map((val) => {
       const catagory = val.catagory;
-      if (!requisiteSet[catagory]) {
-        requisiteSet[catagory] = Array(val.name);
+      const progessInfo = this.getProgress();
+      const requisite = {
+        ...val,
+        from: progessInfo[0],
+        to: progessInfo[1],
+      };
+      if (!catagorySet[catagory]) {
+        catagorySet[catagory] = Array(requisite);
       } else {
-        requisiteSet[catagory] = requisiteSet[catagory].concat(val.name);
+        catagorySet[catagory] = catagorySet[catagory].concat(requisite);
       }
     });
 
-    console.log(this.state.popupShow);
-
     let reqList = [];
     let key = 0;
-    for (let catagory in requisiteSet) {
-      let detailList = requisiteSet[catagory].map((val, index) => {
-        const progessInfo = this.getProgress();
-        let complete = progessInfo[0] === progessInfo[1];
+    for (let catagory in catagorySet) {
+      let detailList = catagorySet[catagory].map((requisite) => {
         return (
-          <div className="detail" key={index}>
-            <h5>{val}</h5>
-            <ProgressBar
-              striped
-              variant="info"
-              now={(progessInfo[0] / progessInfo[1]) * 100}
-            />
-            <div> &nbsp;</div>
-            진행상황 ( {progessInfo[0]} / {progessInfo[1]}) &nbsp;
-            {complete ? (
-              <Badge pill variant="success">
-                완료
-              </Badge>
-            ) : (
-              <Badge pill variant="warning">
-                {progessInfo[1] - progessInfo[0]}개 미완료
-              </Badge>
-            )}
-            <span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>
-            <div align="right">
-              {!complete && (
-                <Button variant="primary" onClick={this.handlePopupShow}>
-                  추가
-                </Button>
-              )}
-            </div>
-            <hr />
-          </div>
+          <CheckItem
+            {...requisite}
+            key={requisite._id}
+            handlePopupShow={this.handlePopupShow}
+          />
         );
       });
       key++;
       reqList = reqList.concat(
-        <Card key={key}>
-          <Card.Header>
-            <Accordion.Toggle as={Button} variant="link" eventKey={key}>
-              <h3>{catagory}</h3>
-            </Accordion.Toggle>
-          </Card.Header>
-          <Accordion.Collapse eventKey={key}>
-            <Card.Body>{detailList}</Card.Body>
-          </Accordion.Collapse>
-        </Card>
+        <CheckCatagory catagory={catagory} detailList={detailList} />
       );
     }
     console.log(reqList);
     return (
       <div>
-        <Accordion defaultActiveKey="0">{reqList}</Accordion>
+        {reqList}
         <PopupModal
           show={this.state.popupShow}
           handleClose={this.handlePopupClose}

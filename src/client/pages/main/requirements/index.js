@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import CheckList from "./components/CheckList";
+import CheckList from "./containers/CheckListContainer";
 import MainLayout from "../../../components/MainLayout";
 
 class MainRequirementsPage extends Component {
