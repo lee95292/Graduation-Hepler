@@ -7,7 +7,7 @@ router.get("/listall", (req, res) => {
   });
 });
 
-router.get("/list/:track/:diploma", auth.filter, (req, res) => {
+router.get("/list/:track/:diploma", (req, res) => {
   const { diploma, track } = req.params;
   Requirements.find({ track: track, diploma: diploma }).then((requires) => {
     res.json(requires);

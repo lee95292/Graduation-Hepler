@@ -1,12 +1,14 @@
 import React, { Component } from "react";
 import CheckList from "./components/CheckList";
-import Sidebar from "../../../components/Sidebar";
+import MainLayout from "../../../components/MainLayout";
+
 class MainRequirementsPage extends Component {
   render() {
     return (
       <div>
-        <Sidebar />
-        <CheckList />
+        <MainLayout>
+          <CheckList />
+        </MainLayout>
       </div>
     );
   }

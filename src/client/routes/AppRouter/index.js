@@ -1,5 +1,5 @@
 import React, { Component, Children } from "react";
-import { BrowserRouter, Route, Switch, Redirect } from "react-router-dom";
+import { BrowserRouter, Route, Switch, Link } from "react-router-dom";
 import axios from "axios";
 
 import history from "../history";
@@ -37,10 +37,10 @@ class AppRouter extends Component {
     return (
       <div>
         <BrowserRouter>
+          <Link to="/">main</Link>
+          <Link to="/admin">admin</Link>
           <Switch>
-            <PrivateRoute>
-              <Route exact path="/" component={MainRequirementsPage} />
-            </PrivateRoute>
+            <Route exact path="/" component={MainRequirementsPage} />
             <Route path="/main/requirements" component={MainRequirementsPage} />
 
             <Route exact path="/account" component={AccountPage} />

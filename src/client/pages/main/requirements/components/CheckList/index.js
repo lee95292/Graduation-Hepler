@@ -1,5 +1,7 @@
 import React, { Component } from "react";
 import { Card, Accordion, Button, ProgressBar, Badge } from "react-bootstrap";
+
+import PropTypes from "prop-types";
 import PopupModal from "./popupModal";
 import axios from "axios";
 //temporary data

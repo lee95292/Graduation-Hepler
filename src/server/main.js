@@ -12,6 +12,7 @@ const express = require("express"),
 mongoose.Promise = global.Promise;
 mongoose.connect(config.mongodb.connectURL, { useURLParser: true });
 const db = mongoose.connection;
+app.use("/", express.static("public"));
 
 mongoose.set("useCreateIndex", true);
 app.set("port", process.env.PORT || 4000);
@@ -20,7 +21,6 @@ app.use(bodyParser.json());
 app.use(cors({ origin: "http://localhost:4000", credentials: true }));
 authModule.setup(app);
 
-app.use("/", express.static("public"));
 app.use("/", router);
 
 // https
