@@ -7,34 +7,34 @@ class RequirementAppendForm extends Component {
       catagory: "",
       track: "",
       name: "",
-      diploma: ""
-    }
+      diploma: "",
+    },
   };
 
-  handleSubmit = e => {
+  handleSubmit = (e) => {
     e.preventDefault();
     console.log("handleSubmit");
     console.log(this.state.form);
     axios
-      .post("/requisite/create", this.state.form)
-      .then(res => {
+      .post("/api/requisite/create", this.state.form)
+      .then((res) => {
         console.log(res);
         this.props.onUpdate(res);
       })
-      .catch(err => {
+      .catch((err) => {
         console.log(err);
       });
   };
 
-  handleChange = e => {
+  handleChange = (e) => {
     const { name, value } = e.target;
     console.log(name, value);
     this.setState({
       ...this.state,
       form: {
         ...this.state.form,
-        [name]: value
-      }
+        [name]: value,
+      },
     });
   };
   render() {
