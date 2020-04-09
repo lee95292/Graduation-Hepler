@@ -1,0 +1,21 @@
+.jbnu-sidebar {
+  width: 16%;
+  height: 90%;
+
+  border: 4px double #f1f2f6;
+  border-bottom: none;
+  border-top-left-radius: 1rem;
+  border-top-right-radius: 1rem;
+  border-bottom-left-radius: 0.3rem;
+  border-bottom-right-radius: 0.3rem;
+
+  padding: 1rem 1rem 1rem;
+  margin: 1rem 1rem 1rem 1rem;
+  background: linear-gradient(#b2bec3, #eceff0);
+}
+
+.jbnu-sidebar-brand {
+  height: 60%;
+  width: auto;
+  margin: 1rem 1.5rem;
+}
