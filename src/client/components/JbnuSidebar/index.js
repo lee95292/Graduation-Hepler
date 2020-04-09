@@ -11,11 +11,6 @@ export class JbnuSidebar extends Component {
           src="img/modern_ui/PNG/signature_vertical_02_bold.png"
         />
         <hr height="4px" />
-        <span className="jbnu-sidebar-info">
-          Contact - hyunchan.park@jbnu.ac.kr
-        </span>
-        <hr />
-        <span className="jbnu-sidebar-info">Info - www.jiant.com </span>
       </div>
     );
   }
