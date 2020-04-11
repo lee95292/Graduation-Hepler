@@ -1,15 +1,15 @@
 import React, { Component } from "react";
-import AppendRequirement from "./containers/FormedRequisite";
 import AdminLayout from "../../../components/AdminLayout";
+import CompleteTable from "./container/CompleteTable";
 
-export class AdminPage extends Component {
+export class AdminCompletePage extends Component {
   render() {
     return (
       <AdminLayout>
-        <AppendRequirement />
+        <CompleteTable />
       </AdminLayout>
     );
   }
 }
 
-export default AdminPage;
+export default AdminCompletePage;
