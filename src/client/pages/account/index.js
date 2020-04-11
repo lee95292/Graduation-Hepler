@@ -4,7 +4,7 @@ import Account from "./containers/Account";
 import axios from "axios";
 export class AccountPage extends Component {
   test = () => {
-    axios.get("/auth/google").then(res => {
+    axios.get("/auth/google").then((res) => {
       console.log("test", res);
     });
   };

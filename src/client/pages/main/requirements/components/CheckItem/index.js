@@ -1,6 +1,8 @@
 import React, { Component, Fragment } from "react";
 import { ProgressBar, Badge, Button } from "react-bootstrap";
 
+import "./style.css";
+
 class CheckItem extends Component {
   constructor(props) {
     super(props);
@@ -26,7 +28,11 @@ class CheckItem extends Component {
 
     return (
       <Fragment>
-        <div className="detail" key={_id} onClick={this.handleCompleteShow}>
+        <div
+          className="check-item-head"
+          key={_id}
+          onClick={this.handleCompleteShow}
+        >
           <h5>{name}</h5>
           <ProgressBar
             striped

@@ -2,6 +2,17 @@ const router = require("express").Router();
 const model = require("../../model");
 const service = require("../../service");
 
+router.get("/all", (req, res) => {
+  model.complete
+    .find({})
+    .then((data) => {
+      res.json(data);
+    })
+    .catch((err) => {
+      console.log(err);
+    });
+});
+
 router.get("/:email", (req, res) => {
   const { email } = req.params;
 
@@ -9,6 +20,10 @@ router.get("/:email", (req, res) => {
     res.json(data);
   });
 });
+
+router.get("/search/email/:eamil", (req, res) => {});
+router.get("/search/track/:track", (req, res) => {});
+router.get("/search/catagory/:catagory", (req, res) => {});
 
 router.post("/", (req, res) => {
   const { requisiteId, description, email } = req.body;
