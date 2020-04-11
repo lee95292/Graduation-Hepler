@@ -5,25 +5,24 @@ const userSchema = new mongoose.Schema({
   email: {
     type: String,
     required: true,
-    unique:true
+    unique: true,
   },
   name: {
     type: String,
-    required: true
+    required: true,
   },
 
-  diploma:{
-    type:
+  diploma: {
+    type: String,
   },
 
-  track:{
-    type:
+  grade: {
+    type: Number,
   },
 
-  requirements:{
-    //배열로 저장
+  track: {
+    type: String,
   },
-  
 });
 
 userSchema.plugin(passportLocalMongoose, { userFiled: "email" });

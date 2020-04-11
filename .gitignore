@@ -9,6 +9,8 @@
 /coverage
 
 # production
+/public/bundle.js
+
 # misc
 .DS_Store
 .env.local

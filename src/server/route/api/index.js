@@ -1,8 +1,10 @@
 const router = require("express").Router(),
-  requisiteRouter = require("./requisite"),
-  authRouter = require("./auth");
+  requisite = require("./requisite"),
+  auth = require("./auth"),
+  complete = require("./complete");
 
-router.use("/requisite", requisiteRouter);
-router.use("/auth", authRouter);
+router.use("/auth", auth);
+router.use("/complete", complete);
+router.use("/requisite", requisite);
 
 module.exports = router;

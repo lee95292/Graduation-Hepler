@@ -1,23 +1,26 @@
 const router = require("express").Router();
-const Requirements = require("../../model/requirment");
+const model = require("../../model");
 const auth = require("../../middleware/auth");
 
 router.get("/listall", (req, res) => {
-  Requirements.find({}).then((requires) => {
-    res.json(requires);
+  model.requisite.find({}).then((requisites) => {
+    res.json(requisites);
   });
 });
 
 router.get("/list/:track/:diploma", (req, res) => {
   const { diploma, track } = req.params;
-  Requirements.find({ track: track, diploma: diploma }).then((requires) => {
-    res.json(requires);
-  });
+  model.requisite
+    .find({ track: track, diploma: diploma })
+    .then((requisites) => {
+      res.json(requisites);
+    });
 });
 
 router.get("/delete/:id", (req, res) => {
   const id = req.params.id;
-  Requirements.remove({ _id: id })
+  model.requisite
+    .remove({ _id: id })
     .then(() => {
       res.json({ removed: true });
     })
@@ -27,19 +30,15 @@ router.get("/delete/:id", (req, res) => {
 });
 
 router.post("/create", (req, res) => {
-  let requisiteModel = {
-    track: req.body.track,
-    catagory: req.body.catagory,
-    name: req.body.name,
-    diploma: req.body.diploma,
-  };
-
-  Requirements.create(requisiteModel)
-    .then((requirement) => {
-      res.json(requirement);
+  //track, catagory, name, diploma
+  model.requisite
+    .create({ ...req.body })
+    .then((requisite) => {
+      res.json(requisite);
     })
     .catch((error) => {
       console.log("error: create requisite", error);
+      res.json("false");
     });
 });
 
