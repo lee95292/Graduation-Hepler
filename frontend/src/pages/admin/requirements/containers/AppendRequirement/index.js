@@ -4,7 +4,7 @@ import axios from "axios";
 
 class AppendRequirement extends Component {
   state = {
-    requisites: []
+    requisites: [],
   };
 
   componentDidMount() {
@@ -12,43 +12,47 @@ class AppendRequirement extends Component {
   }
 
   handleUpdate = () => {
-    axios.get("/requisite/listall").then(res => {
+    axios.get("/requisite/listall").then((res) => {
       this.setState({ ...this.state, requisites: res.data });
       console.log(res.data);
     });
   };
-  handleAppend = res => {
+  handleAppend = (res) => {
     const prevReq = this.state.requisites.concat(res.data);
     this.setState({ requisites: prevReq });
     console.log("prevReq:" + prevReq);
   };
 
-  handleItemRemove = id => {
+  handleItemRemove = (id) => {
     axios
       .get("/requisite/delete?id=" + id)
-      .then(res => {
+      .then((res) => {
         this.handleUpdate();
         console.log(id);
       })
-      .catch(error => {
+      .catch((error) => {
         console.log(error);
       });
   };
   render() {
     const requisites = this.state.requisites;
     const reqList = requisites.map((val, index) => (
-      <span key={index}>
-        {JSON.stringify(val)}
-        <button
-          key={index}
-          onClick={e => {
-            this.handleItemRemove(val._id);
-            e.stopPropagation();
-          }}
-        >
-          지우기
-        </button>
-      </span>
+      <div key={index}>
+        <span>
+          {JSON.stringify(val)}
+
+          <button
+            key={index}
+            onClick={(e) => {
+              this.handleItemRemove(val._id);
+              e.stopPropagation();
+            }}
+          >
+            Delete
+          </button>
+        </span>
+        <hr />
+      </div>
     ));
     return (
       <div>
