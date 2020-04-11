@@ -12,6 +12,7 @@ class AppendRequirement extends Component {
         track: "",
         name: "",
         diploma: "",
+        num_of_pass: 1,
       },
     };
   }
