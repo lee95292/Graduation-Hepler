@@ -39,7 +39,6 @@ class AppRouter extends Component {
     return (
       <div>
         <BrowserRouter>
-          [<Link to="/">main</Link>/<Link to="/admin/requisite">admin</Link>]
           <Switch>
             <Route exact path="/" component={MainRequirementsPage} />
             <Route path="/main/requisite" component={MainRequirementsPage} />
