@@ -15,10 +15,10 @@ class MainHeader extends Component {
         />
         <div className="main-header-nav">
           <Link className="main-header-nav-item" to="/">
-            main
+            Main
           </Link>
           <Link className="main-header-nav-item" to="/admin/requisite">
-            admin
+            Admin
           </Link>
         </div>
         <div className="main-header-user">lee95292@jbnu.ac.kr</div>

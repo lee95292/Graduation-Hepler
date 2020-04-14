@@ -9,5 +9,15 @@
 }
 
 .main-layout-title {
-  text-align: center;
+  border-bottom: 0.7px solid #d1d1d1;
+  margin: 2rem 0 2rem 3rem;
+}
+
+.main-layout-title-main {
+  font-size: 3rem;
+  letter-spacing: 0.7rem;
+}
+.main-layout-title-sub {
+  font-size: 1rem;
+  letter-spacing: 0.3rem;
 }

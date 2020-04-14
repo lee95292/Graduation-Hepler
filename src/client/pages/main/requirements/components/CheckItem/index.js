@@ -16,36 +16,44 @@ class CheckItem extends Component {
   render() {
     const { completes, num_of_pass, name, _id, handlePopupShow } = this.props;
     const { showComplete } = this.state;
-    const done = completes.length;
+    const done = completes.length,
+      progress = (done / num_of_pass) * 100,
+      progressVariant = progress >= 100 ? "success" : "info";
 
     const completesView = showComplete && (
-      <div>
+      <ul className="check-item-list">
         {completes.map((complete) => (
-          <p key={complete._id}>{complete.description}</p>
+          <div key={complete._id} className="check-item-subitem">
+            <li>
+              {complete.description}
+              <div style={({ align: "right" }, { color: "green" })}>
+                [approved]
+              </div>
+            </li>
+            <hr />
+          </div>
         ))}
-      </div>
+      </ul>
     );
 
     return (
-      <Fragment>
-        <div
-          className="check-item-head"
-          key={_id}
-          onClick={this.handleCompleteShow}
-        >
+      <div className="check-item" key={_id}>
+        <div className="check-item-head" onClick={this.handleCompleteShow}>
           <h5>{name}</h5>
           <ProgressBar
             striped
-            variant="info"
-            now={(done / num_of_pass) * 100}
+            className="check-item-progress"
+            variant={progressVariant}
+            label={`[${done}개 완료]`}
+            now={progress}
           />
           진행상황 ( {done} / {num_of_pass}) &nbsp;
           {num_of_pass <= done ? (
-            <Badge pill variant="success">
+            <Badge pill variant="light">
               완료
             </Badge>
           ) : (
-            <Badge pill variant="warning">
+            <Badge pill variant="dark">
               {num_of_pass - done}개 미완료
             </Badge>
           )}
@@ -56,10 +64,11 @@ class CheckItem extends Component {
               추가
             </Button>
           )}
+          <hr />
         </div>
         {completesView}
         <hr />
-      </Fragment>
+      </div>
     );
   }
 }

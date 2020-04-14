@@ -11,9 +11,15 @@ export class MainLayout extends Component {
         <MainHeader />
         {/* <JbnuSidebar /> */}
         <div className="main-layout-child">
-          <h2 className="main-layout-title">
-            JIANT<sub> 포트폴리오 관리 시스템</sub>
-          </h2>
+          <div className="main-layout-title">
+            <div className="main-layout-title-main">
+              JIANT
+              <span className="main-layout-title-sub">
+                포트폴리오 관리 시스템
+              </span>
+            </div>
+          </div>
+
           {this.props.children}
         </div>
       </div>
