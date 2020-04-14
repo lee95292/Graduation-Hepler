@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import axios from "axios";
+import { Form, Button, Col } from "react-bootstrap";
 
 class RequirementAppendForm extends Component {
   render() {
@@ -7,25 +7,61 @@ class RequirementAppendForm extends Component {
     return (
       <div>
         <h2>create requisite</h2>
-        <form onSubmit={(e) => onSubmit(e)}>
-          카테고리:
-          <input type="text" name="catagory" onChange={onChange} required />
-          <br />
-          트랙:
-          <input type="text" name="track" onChange={onChange} required />
-          <br />
-          이름:
-          <input type="text" name="name" onChange={onChange} required />
-          <br />
-          과정(석,박사)
-          <input type="text" name="diploma" onChange={onChange} required />
-          <br />
-          이수항목 개수
-          <input type="text" name="num_of_pass" onChange={onChange} />
-          <br />
-          <input type="submit" />
-          <button type="submit">submit</button>
-        </form>
+        <Form onSubmit={(e) => onSubmit(e)}>
+          <Form.Row>
+            <Form.Group as={Col} controlId="track">
+              <Form.Label>트랙</Form.Label>
+              <Form.Control
+                name="track"
+                onChange={onChange}
+                type="text"
+                placeholder="산학"
+              />
+            </Form.Group>
+
+            <Form.Group as={Col} controlId="progress">
+              <Form.Label>과정(석,박사)</Form.Label>
+              <Form.Control
+                name="diploma"
+                onChange={onChange}
+                type="text"
+                placeholder="석사"
+              />
+            </Form.Group>
+          </Form.Row>
+
+          <Form.Group controlId="name">
+            <Form.Label>이름</Form.Label>
+            <Form.Control
+              name="name"
+              onChange={onChange}
+              placeholder="1. 가상환경의 스토리지 성능 향상을 위한 클라우드 스토리지 시스템 "
+            />
+          </Form.Group>
+
+          <Form.Row>
+            <Form.Group as={Col} controlId="catagory">
+              <Form.Label>카테고리</Form.Label>
+              <Form.Control
+                onChange={onChange}
+                name="catagory"
+                placeholder="영어 논문"
+              />
+            </Form.Group>
+
+            <Form.Group controlId="numOfPass">
+              <Form.Label>충족요건 개수</Form.Label>
+              <Form.Control
+                onChange={onChange}
+                name="num_of_pass"
+                placeholder="6"
+              />
+            </Form.Group>
+          </Form.Row>
+          <Button variant="primary" type="submit">
+            Submit
+          </Button>
+        </Form>
       </div>
     );
   }

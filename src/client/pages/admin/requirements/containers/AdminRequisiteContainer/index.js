@@ -2,7 +2,10 @@ import React, { Component } from "react";
 import RequisiteForm from "../../components/RequisiteAppendForm";
 import axios from "axios";
 import FormedRequisiteTable from "../../components/FormedRequisiteTable";
-class AppendRequirement extends Component {
+
+import "./style.css";
+
+class AdminRequisiteContainer extends Component {
   constructor(props) {
     super(props);
     this.state = {
@@ -46,7 +49,6 @@ class AppendRequirement extends Component {
 
   handleAppendFormSubmit = (e) => {
     e.preventDefault();
-    console.log("this.state.form", this.state.form);
     axios
       .post("/api/requisite/create", this.state.form)
       .then((res) => {
@@ -70,21 +72,24 @@ class AppendRequirement extends Component {
   render() {
     const { requisites } = this.state;
     return (
-      <div>
+      <div className="admin-requisite">
         <hr />
-        <RequisiteForm
-          onSubmit={this.handleAppendFormSubmit}
-          onChange={this.handleAppendFormChange}
-          onUpdate={this.handleAppend}
-        />
-        <hr />
-        <FormedRequisiteTable
-          requisites={requisites}
-          handleRequisiteRemove={this.handleRequisiteRemove}
-        />
+        <div className="admin-requisite-append">
+          <RequisiteForm
+            onSubmit={this.handleAppendFormSubmit}
+            onChange={this.handleAppendFormChange}
+            onUpdate={this.handleAppend}
+          />
+        </div>
+        <div className="admin-requisite-table">
+          <FormedRequisiteTable
+            requisites={requisites}
+            handleRequisiteRemove={this.handleRequisiteRemove}
+          />
+        </div>
       </div>
     );
   }
 }
 
-export default AppendRequirement;
+export default AdminRequisiteContainer;

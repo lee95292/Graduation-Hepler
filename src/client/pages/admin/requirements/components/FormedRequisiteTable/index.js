@@ -16,6 +16,7 @@ export class FormedRequisiteTable extends Component {
               <th>NAME</th>
               <th>DIPLOMA</th>
               <th>CATAGORY</th>
+              <th>Number of approval</th>
               <th>__</th>
             </tr>
           </thead>
@@ -27,6 +28,7 @@ export class FormedRequisiteTable extends Component {
                 <td>{value.name}</td>
                 <td>{value.diploma}</td>
                 <td>{value.catagory}</td>
+                <td>{value.num_of_pass}</td>
                 <td>
                   <Button onClick={() => handleRequisiteRemove(value._id)}>
                     Delete
