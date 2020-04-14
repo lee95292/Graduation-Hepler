@@ -11,7 +11,6 @@ class CheckCatagory extends Component {
     };
   }
   handleShow = () => {
-    console.log("ttest");
     this.setState({ show: !this.state.show });
   };
   render() {
@@ -24,7 +23,7 @@ class CheckCatagory extends Component {
             onClick={this.handleShow}
             className="checklist-catagory-head"
           >
-            <h3>{catagory}</h3>
+            <h3 className="checklist-catagory-title">{catagory}</h3>
           </Card.Header>
           {show && (
             <Card.Body className="checklist-catagory-body">

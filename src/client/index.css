@@ -1,9 +1,14 @@
-html,
-body {
-  height: 100%;
-  margin: 0;
+html {
 }
-
-#root {
-  height: 100%;
+body {
+  /* height: 100%; */
+  margin: 0;
+  background-color: #f1f0f7;
+  background: repeating-linear-gradient(
+    85deg,
+    #f0f1fb,
+    #f0f1fb 18px,
+    #f6f5fc 0,
+    #f6f5fc 20px
+  );
 }

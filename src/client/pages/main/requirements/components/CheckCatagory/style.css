@@ -1,9 +1,10 @@
 .checklist-catagory {
   margin: 1rem 1rem 2rem 1rem;
 }
-/* .checklist-catagory-head {
-  background-color: #636e72;
+.checklist-catagory-title {
+  margin-left: 9%;
+}
+.checklist-catagory-head {
 }
 .checklist-catagory-body {
-  background-color: #dfe6e9;
-} */
+}

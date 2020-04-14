@@ -1,0 +1,14 @@
+.admin-requisite {
+  margin-left: 1rem;
+  display: flex;
+}
+
+.admin-requisite-append {
+  flex: 3;
+}
+
+.admin-requisite-table {
+  margin: 1rem 1rem 1rem 1rem;
+  border: 1px double gray;
+  flex: 6;
+}

@@ -1,4 +1,31 @@
+.check-item {
+  width: 80%;
+  margin-left: 10%;
+}
 .check-item-head {
   cursor: pointer;
-  transition: all 2s;
+  margin-bottom: 1rem;
+  /* transition: all 2s; */
+}
+
+.check-item-head:hover {
+  background-color: #fafafa;
+}
+
+.check-item-progress {
+  margin: 1rem 1rem 1rem 0;
+}
+.check-item-list {
+  margin-top: 1rem;
+  padding-left: 2rem;
+  padding: 1rem 1rem 0rem 2rem;
+  list-style-type: none;
+}
+
+.check-item-subitem {
+  padding: 1rem 0 0 3rem;
+  overflow: auto;
+}
+.check-item-subitem:nth-child(odd) {
+  background-color: #fafafa;
 }
