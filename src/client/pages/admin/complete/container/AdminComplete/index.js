@@ -5,6 +5,8 @@ import UserListTable from "../../component/UserListTable";
 import RequisiteTable from "../../component/RequisiteTable";
 import CompleteTable from "../../component/CompleteTable";
 
+import "./style.css";
+
 class AdminComplete extends Component {
   constructor(props) {
     super(props);
@@ -62,8 +64,13 @@ class AdminComplete extends Component {
     this.setState({ curCompletes: curCompletes });
   };
   handleClickUser = (selectedUser) => {
-    const { requisites } = this.state;
+    const { requisites, completes } = this.state;
     this.setCurRequisiteByUser(selectedUser, requisites);
+    this.setCurCompleteByRequisite(
+      selectedUser.email,
+      requisites[0],
+      completes
+    );
   };
 
   handleClickRequisite = (selectedRequisite) => {
@@ -83,16 +90,22 @@ class AdminComplete extends Component {
     console.log("userList", userList);
     return (
       <div className="admin-complete">
-        <UserListTable
-          curUser={curUser}
-          userList={userList}
-          handleClickUser={this.handleClickUser}
-        />
-        <RequisiteTable
-          requisiteList={curRequisites}
-          handleClickRequisite={this.handleClickRequisite}
-        />
-        <CompleteTable completeList={curCompletes} />
+        <div className="admin-complete-item">
+          <UserListTable
+            curUser={curUser}
+            userList={userList}
+            handleClickUser={this.handleClickUser}
+          />
+        </div>
+        <div className="admin-complete-item">
+          <RequisiteTable
+            requisiteList={curRequisites}
+            handleClickRequisite={this.handleClickRequisite}
+          />
+        </div>
+        <div className="admin-complete-item">
+          <CompleteTable completeList={curCompletes} />
+        </div>
       </div>
     );
   }

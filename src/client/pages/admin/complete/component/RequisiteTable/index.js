@@ -12,12 +12,12 @@ export class RequisiteTable extends Component {
       </tr>
     ));
     return (
-      <Table>
+      <Table bordered>
         <thead>
           <tr>
             <th>Requisite</th>
             <th>Catagory</th>
-            <th>Number of Approval</th>
+            <th>Approve required</th>
           </tr>
         </thead>
         <tbody>{requisiteTableBody}</tbody>

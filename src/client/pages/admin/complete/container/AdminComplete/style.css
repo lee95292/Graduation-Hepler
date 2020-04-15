@@ -1,0 +1,8 @@
+.admin-complete {
+  display: flex;
+}
+
+.admin-complete-item {
+  margin: 1rem 1rem 1rem 1rem;
+  width: 100%;
+}
