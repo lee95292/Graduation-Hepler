@@ -1,6 +1,4 @@
-import React, { Component } from "react";
-import CheckList from "./containers/CheckList";
-import MainLayout from "../../../components/MainLayout";
+const router = require("express").Router();
 
 const userInfo = [
   {
@@ -26,16 +24,14 @@ const userInfo = [
   },
 ];
 
-class MainRequirementsPage extends Component {
-  render() {
-    return (
-      <div>
-        <MainLayout>
-          <CheckList userInfo={userInfo[0]} />
-        </MainLayout>
-      </div>
-    );
-  }
-}
+router.get("/search/eamil/:eamil", (req, res) => {
+  const { email } = req.params;
+  const user = userInfo.find((info) => info.email === email);
+  res.json(user);
+});
 
-export default MainRequirementsPage;
+router.get("/listall", (req, res) => {
+  res.json(userInfo);
+});
+
+module.exports = router;

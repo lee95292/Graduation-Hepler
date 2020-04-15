@@ -31,11 +31,11 @@ class RequirementAppendForm extends Component {
           </Form.Row>
 
           <Form.Group controlId="name">
-            <Form.Label>이름</Form.Label>
+            <Form.Label>활동명</Form.Label>
             <Form.Control
               name="name"
               onChange={onChange}
-              placeholder="1. 가상환경의 스토리지 성능 향상을 위한 클라우드 스토리지 시스템 "
+              placeholder="영어 논문 "
             />
           </Form.Group>
 
@@ -45,7 +45,7 @@ class RequirementAppendForm extends Component {
               <Form.Control
                 onChange={onChange}
                 name="catagory"
-                placeholder="영어 논문"
+                placeholder="글로벌 역량"
               />
             </Form.Group>
 

@@ -3,7 +3,7 @@ import { Table, Button } from "react-bootstrap";
 
 class CompleteTable extends Component {
   render() {
-    const { completes } = this.props;
+    const { completeList } = this.props;
     console.log("this.props", this.props);
     return (
       <Table>
@@ -15,8 +15,8 @@ class CompleteTable extends Component {
           </tr>
         </thead>
         <tbody>
-          {completes.map((complete) => (
-            <tr>
+          {completeList.map((complete) => (
+            <tr key={complete._id}>
               <td>{complete._id}</td>
               <td>{complete.userEmail}</td>
               <td>{complete.description}</td>

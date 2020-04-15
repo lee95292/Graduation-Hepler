@@ -2,7 +2,7 @@ const router = require("express").Router();
 const model = require("../../model");
 const service = require("../../service");
 
-router.get("/all", (req, res) => {
+router.get("/listall", (req, res) => {
   model.complete
     .find({})
     .then((data) => {

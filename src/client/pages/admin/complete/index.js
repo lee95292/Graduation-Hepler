@@ -1,12 +1,12 @@
 import React, { Component } from "react";
 import AdminLayout from "../../../components/AdminLayout";
-import CompleteTable from "./container/CompleteTable";
+import AdminComplete from "./container/AdminComplete";
 
 export class AdminCompletePage extends Component {
   render() {
     return (
       <AdminLayout>
-        <CompleteTable />
+        <AdminComplete />
       </AdminLayout>
     );
   }
