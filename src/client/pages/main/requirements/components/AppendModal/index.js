@@ -13,7 +13,7 @@ class PopupModal extends Component {
     return (
       <Modal show={show} onHide={handleClose}>
         <Modal.Header closeButton>
-          <Modal.Title>활동 추가하기</Modal.Title>
+          <Modal.Title>실적 추가하기</Modal.Title>
         </Modal.Header>
         <Modal.Body>
           <textarea cols="50" onChange={(e) => handleChange(e)} />

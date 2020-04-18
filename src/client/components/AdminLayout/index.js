@@ -8,33 +8,36 @@ class AdminLayout extends Component {
   render() {
     return (
       <div className="admin-layout">
-        <MainHeader />[
-        <NavLink
-          to="/admin/requisite"
-          className="admin-layout-nav"
-          activeStyle={{ fontSize: "1.8rem" }}
-        >
-          졸업자격
-        </NavLink>
-        /
-        <NavLink
-          to="/admin/complete"
-          className="admin-layout-nav"
-          activeStyle={{ fontSize: "1.8rem" }}
-        >
-          학생 이수현황
-        </NavLink>
-        /
-        <NavLink
-          to="/admin/statistics"
-          className="admin-layout-nav"
-          activeStyle={{ fontSize: "1.8rem" }}
-        >
-          실적통계
-        </NavLink>
-        ]
+        <MainHeader />
+        <div className="admin-layout-header">
+          [
+          <NavLink
+            to="/admin/requisite"
+            className="admin-layout-nav"
+            activeStyle={{ fontSize: "1.8rem" }}
+          >
+            졸업자격
+          </NavLink>
+          /
+          <NavLink
+            to="/admin/complete"
+            className="admin-layout-nav"
+            activeStyle={{ fontSize: "1.8rem" }}
+          >
+            학생 이수현황
+          </NavLink>
+          /
+          <NavLink
+            to="/admin/statistics"
+            className="admin-layout-nav"
+            activeStyle={{ fontSize: "1.8rem" }}
+          >
+            실적통계
+          </NavLink>
+          ]
+        </div>
         <hr />
-        {this.props.children}
+        <div className="admin-layout-child">{this.props.children}</div>
       </div>
     );
   }
