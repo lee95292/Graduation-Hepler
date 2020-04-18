@@ -7,10 +7,10 @@ class PopupModal extends Component {
     return (
       <Modal show={show} onHide={handleClose}>
         <Modal.Header closeButton>
-          <Modal.Title>í™œë�™ì¶”ê°€</Modal.Title>
+          <Modal.Title>활동 추가하기€</Modal.Title>
         </Modal.Header>
         <Modal.Body>
-          <input type="text" />
+          <input type="text" width="80%" />
         </Modal.Body>
         <Modal.Footer>
           <Button variant="secondary" onClick={handleClose}>

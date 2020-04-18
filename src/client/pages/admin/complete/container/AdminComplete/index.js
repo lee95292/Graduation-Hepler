@@ -71,6 +71,7 @@ class AdminComplete extends Component {
       requisites[0],
       completes
     );
+    this.setState({ curUser: selectedUser });
   };
 
   handleClickRequisite = (selectedRequisite) => {
@@ -87,7 +88,7 @@ class AdminComplete extends Component {
       curRequisites,
       curUser,
     } = this.state;
-    console.log("userList", userList);
+    console.log("curUser", curUser);
     return (
       <div className="admin-complete">
         <div className="admin-complete-item">

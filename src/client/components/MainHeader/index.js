@@ -1,10 +1,11 @@
 import React, { Component } from "react";
-import { Link } from "react-router-dom";
+import { NavLink } from "react-router-dom";
 
 import "./style.css";
 
 class MainHeader extends Component {
   render() {
+    const activeStyle = { color: "gray" };
     return (
       <div className="main-header">
         <img
@@ -14,12 +15,21 @@ class MainHeader extends Component {
           width="50rem"
         />
         <div className="main-header-nav">
-          <Link className="main-header-nav-item" to="/">
-            Main
-          </Link>
-          <Link className="main-header-nav-item" to="/admin/requisite">
-            Admin
-          </Link>
+          <NavLink
+            className="main-header-nav-item"
+            exact
+            to="/"
+            activeStyle={activeStyle}
+          >
+            메인
+          </NavLink>
+          <NavLink
+            className="main-header-nav-item"
+            to="/admin"
+            activeStyle={activeStyle}
+          >
+            관리자
+          </NavLink>
         </div>
         <div className="main-header-user">lee95292@jbnu.ac.kr</div>
       </div>

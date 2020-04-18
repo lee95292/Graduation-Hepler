@@ -1,0 +1,8 @@
+.requisite-table-tr:hover {
+  background-color: aliceblue;
+  cursor: pointer;
+}
+
+.requisite-table-tr-active {
+  background-color: aquamarine;
+}

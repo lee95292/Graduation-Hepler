@@ -16,7 +16,7 @@ class PopupModal extends Component {
           <Modal.Title>활동 추가하기</Modal.Title>
         </Modal.Header>
         <Modal.Body>
-          <input type="text" onChange={(e) => handleChange(e)} required />
+          <textarea cols="50" onChange={(e) => handleChange(e)} />
         </Modal.Body>
         <Modal.Footer>
           <Button variant="secondary" onClick={handleClose}>

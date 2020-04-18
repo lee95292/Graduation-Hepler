@@ -1,0 +1,7 @@
+.userlist-table-tr:hover {
+  background-color: aliceblue;
+  cursor: pointer;
+}
+.userlist-table-tr-active {
+  background-color: aquamarine;
+}

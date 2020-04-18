@@ -40,8 +40,8 @@ class AppRouter extends Component {
       <div>
         <BrowserRouter>
           <Switch>
-            <Route exact path="/" component={MainRequirementsPage} />
-            {/* <Route exact path="/" component={AdminCompletePage} /> */}
+            {/* <Route exact path="/" component={MainRequirementsPage} /> */}
+            <Route exact path="/" component={AdminCompletePage} />
 
             <Route path="/main/requisite" component={MainRequirementsPage} />
 
