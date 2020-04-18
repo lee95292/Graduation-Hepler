@@ -1,3 +1,7 @@
+.admin-layout-header {
+  text-align: center;
+}
+
 .admin-layout-nav {
   font-style: none;
   color: black;
@@ -8,4 +12,12 @@
 
 .admin-layout-nav:hover {
   color: #5a65f0;
+}
+
+.admin-layout-child {
+  padding: 1rem 1rem 1rem 1rem;
+  background-color: #e8effd;
+  border: 1rem solid white;
+  border-radius: 1rem;
+  margin: 1.5rem 3rem 3rem 3rem;
 }

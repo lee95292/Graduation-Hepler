@@ -10,7 +10,8 @@ class MainHeader extends Component {
       <div className="main-header">
         <img
           className="main-header-logo"
-          src="/img/modern_ui/PNG/symbol.pn#g"
+          src="/img/logo/mainlogo.PNG"
+          style={{ borderRadius: "4rem" }}
           height="40rem"
           width="50rem"
         />
