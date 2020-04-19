@@ -8,7 +8,7 @@ class AdminLayout extends Component {
   render() {
     return (
       <div className="admin-layout">
-        <MainHeader />
+        <MainHeader username="admin" />
         <div className="admin-layout-header">
           [
           <NavLink

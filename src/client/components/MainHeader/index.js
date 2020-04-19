@@ -1,10 +1,12 @@
 import React, { Component } from "react";
 import { NavLink } from "react-router-dom";
+import { Dropdown } from "react-bootstrap";
 
 import "./style.css";
 
 class MainHeader extends Component {
   render() {
+    const { username } = this.props;
     const activeStyle = { color: "gray" };
     return (
       <div className="main-header">
@@ -16,7 +18,7 @@ class MainHeader extends Component {
           width="50rem"
         />
         <div className="main-header-nav">
-          <NavLink
+          {/* <NavLink
             className="main-header-nav-item"
             exact
             to="/"
@@ -30,9 +32,19 @@ class MainHeader extends Component {
             activeStyle={activeStyle}
           >
             관리자
-          </NavLink>
+          </NavLink> */}
         </div>
-        <div className="main-header-user">lee95292@jbnu.ac.kr</div>
+        <Dropdown className="main-header-user">
+          <Dropdown.Toggle variant="Secondary" id="dropdown-basic">
+            {username ? username : "lee95292@jbnu.ac.kr"}
+          </Dropdown.Toggle>
+
+          <Dropdown.Menu>
+            <Dropdown.Item>
+              <NavLink to="/account">logout</NavLink>
+            </Dropdown.Item>
+          </Dropdown.Menu>
+        </Dropdown>
       </div>
     );
   }
