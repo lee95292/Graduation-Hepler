@@ -46,7 +46,7 @@
     "concurrently": "^4.0.1",
     "react-hot-loader": "^4.12.20",
     "webpack": "^4.42.1",
-    "webpack-cli": "^3.3.11",
+    "webpack-cli": "^3.3.12",
     "webpack-dev-server": "^3.10.3"
   },
   "babel": {
